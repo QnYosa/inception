@@ -1,0 +1,52 @@
+Lister les containers present sur la machine
+	docker ps -a
+	La commande docker ps permet de lister les conteneurs
+	 qui sont en cours d'exécution. Comme hello-word 
+	 s'arrête automatiquement après avoir produit le résultat,
+	  il n'apparaît pas dans la liste des conteneurs qui sont en cours
+	d'exécution.
+
+Pour lister le nombre d'images téléchargées, il faut utiliser la commande suivante.
+	docker image ls
+ou:
+	docker images
+	Il n'y a pas de "s" à image dans la première commande,
+	 contrairement à la deuxième.
+
+SUPPRIMER UN CONTENEUR
+	docker rm ID (ou on peu se contenter d'ecrire le premier caracteres ou les premiers)
+	ou: 
+	docker container rm 6d6e1ebf2098 (ID)
+
+SUPPRIMER UNE IMAGE
+	docker image rm d1165f221234
+
+Lancer UUBUNTU VIA DOCKER
+Pour lancer Ubuntu, tapez la commande suivante.
+
+docker run ubuntu:18.04
+Comme il a été dit plus haut, nous spécifions une version
+ et c'est de cette façon que l'on procède.
+
+Que se passe-t-il ?
+
+Comme vous le savez, car nous en avons parlé dans une leçon antérieure, puisque nous n'avons pas 
+l'image Ubuntu, Docker va dans un premier temps la télécharger. Après coup, il va créer un conteneur 
+basé sur cette image.
+
+Interagir et supprimer le conteneur après utilisation
+
+	docker run -it --rm ubuntu:18.04
+	Nous allons expliquer les options sans entrer dans les détails.
+	-i : Vous permettra d'interagir avec votre conteneur.
+	-t : Vous permettra de taper du texte (des commandes) dans votre terminal.
+
+Ne vous prenez pas trop la tête. Retenez simplement que pour interagir avec un conteneur, il faut utiliser la combinaison -it.
+
+--rm : Détruira le conteneur lorsqu'on le quittera via la commande exit.
+
+DEMARRER UN CONTENEUR 
+	docker start 04d3c76cdc0d
+
+Entrer dans un conteneur redémarré
+	docker start -ai 04d3c76cdc0d
